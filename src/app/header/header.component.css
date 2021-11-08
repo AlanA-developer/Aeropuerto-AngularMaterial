@@ -1,0 +1,45 @@
+.barraSuperior{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: .7rem;
+  font-size: 1.4em;
+  flex-wrap: wrap;
+}
+
+.barraSuperior a{
+  flex-grow: 1;
+  text-decoration: none;
+  color: black;
+  border-left: 1px solid black;
+  transition: 300ms;
+}
+
+.barraSuperior h1{
+  margin: 0;
+  flex-grow: 1;
+}
+
+
+.barraSuperior a:hover{
+  transition: 300ms;
+  font-size: 1.3em;
+  text-decoration:dashed;
+}
+
+.barraSuperior:nth-child(1){
+  color: rgb(53, 159, 189);
+}
+
+
+@media only screen and (max-width: 1404px) {
+  .barraSuperior a{
+    flex-grow: 1;
+    text-decoration: none;
+    color: black;
+    border-left: 1px solid rgb(255, 255, 255);
+    transition: 300ms;
+  }
+}

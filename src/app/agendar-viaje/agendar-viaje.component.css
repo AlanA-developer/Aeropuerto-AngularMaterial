@@ -1,0 +1,30 @@
+.tituloAgendar{
+  text-align: center;
+}
+
+.tarjetaPasos{
+  text-align: center;
+}
+
+
+.example-radio-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.labelSatisfaccion{
+  text-align: center;
+}
+
+.contenedor{
+ display: flex;
+ flex-grow: 1;
+ justify-content: center;
+ align-items: center;
+}

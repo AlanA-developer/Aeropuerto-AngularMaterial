@@ -1,0 +1,13 @@
+.contenedor404{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tituloError{
+  font-stretch: condensed;
+  margin-top: 20%;
+  text-align: center;
+  font-size: 40px;
+  color: red;
+}

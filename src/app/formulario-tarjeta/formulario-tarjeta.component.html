@@ -1,0 +1,17 @@
+<div class="example-container">
+  <mat-form-field hintLabel="Max 10 characters" appearance="fill">
+    <mat-label class="form-field">Números de tu tarjeta</mat-label>
+    <input matInput #input maxlength="10" placeholder="Ej: 1234567890">
+    <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="form-field">
+    <mat-label>Selecciona un tipo de tarjeta</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let tarjeta of tarjetas" [value]="tarjeta">
+        {{tarjeta}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+

@@ -1,0 +1,93 @@
+<h1 class="tituloAgendar">Agendemos tu viaje</h1>
+
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab label="Paso 1">
+    <div class="tarjetaPasos">
+      <h1>
+        Como primer paso vamos a elegir si tu viaje es nacional o internacional
+      </h1>
+      <app-formulario-viaje></app-formulario-viaje>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="Paso 2">
+    <div class="tarjetaPasos">
+      <h1>
+        Como segundo paso haremos el cobro a tu tarjeta y seleccionaremos las
+        fechas
+      </h1>
+      <app-formulario-tarjeta></app-formulario-tarjeta>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Selecciona las fechas</mat-label>
+        <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+          <input
+            matStartDate
+            formControlName="start"
+            placeholder="Fecha de ida"
+          />
+          <input
+            matEndDate
+            formControlName="end"
+            placeholder="Fecha de regreso"
+          />
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+
+        <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')"
+          >Invalid start date</mat-error
+        >
+        <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')"
+          >Invalid end date</mat-error
+        >
+      </mat-form-field>
+    </div>
+
+    <!-- Autocompletado -->
+    <h1 class="tituloAgendar">
+      Por último le pedimos que conteste una encuesta de satisfacción
+    </h1>
+    <div class="contenedor">
+      <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>NIvel de satisfacción</mat-label>
+          <input
+            type="text"
+            matInput
+            [formControl]="myControl"
+            [matAutocomplete]="auto"
+          />
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option
+              *ngFor="let option of filteredOptions | async"
+              [value]="option"
+            >
+              {{ option.name }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </form>
+
+  </div>
+
+      <!-- Esto son las opciones de recomendacion -->
+
+      <h1 id="example-radio-group-label" class="labelSatisfaccion">
+        ¿Recomendarías PortAirlines a algún familiar o amigo?
+      </h1>
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="favoriteSeason"
+      >
+        <mat-radio-button
+          class="example-radio-button"
+          *ngFor="let season of seasons"
+          [value]="season"
+        >
+          {{ season }}
+        </mat-radio-button>
+      </mat-radio-group>
+  </mat-tab>
+</mat-tab-group>
